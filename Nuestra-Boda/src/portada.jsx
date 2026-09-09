@@ -5,7 +5,7 @@ export default function Portada() {
     <section className="relative w-full min-h-[100svh] overflow-hidden bg-black text-white">
       {/* Imagen principal */}
       <img
-        src="/portada.jpg"
+        src="/portada2.png"
         alt="Leonel y Lizbeth"
         className="absolute inset-0 h-full w-full object-cover object-center"
         loading="eager"
