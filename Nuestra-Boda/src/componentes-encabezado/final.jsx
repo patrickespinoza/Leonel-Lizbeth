@@ -6,9 +6,9 @@ const ImagenFinal = () => {
     <section className="relative min-h-[100svh] w-full overflow-hidden bg-black">
       {/* Imagen final */}
       <img
-        src="/final.png"
+        src="/final.jpg"
         alt="Leonel y Lizbeth"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[center_20%]"
         loading="lazy"
       />
 

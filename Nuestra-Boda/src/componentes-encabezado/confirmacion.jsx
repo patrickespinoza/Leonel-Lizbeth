@@ -94,7 +94,7 @@ export default function ConfirmacionAsistencia() {
   const [tipoMensaje, setTipoMensaje] = useState("");
 
   const SCRIPT_URL =
-    "https://script.google.com/macros/s/AKfycbxklU9PTlqxkcu9pBUfWYhByQZ_7kJWuFENeeQhlEW-C6eh2cVbTK3z2AbMJiWVL1ME/exec";
+    "https://script.google.com/macros/s/AKfycbzXZY6eOMfyWKdCL2hDIvAilwazYjkgR7iCGIgPR5xYcGVQIiVMNLY-uPtjP3Qbg7Mm/exec";
 
   const seleccionarAsistencia = (respuesta) => {
     setAsistencia(respuesta);
