@@ -1,198 +1,206 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Church, Wine, Heart, Cake } from "lucide-react";
+
+/* Rama botánica decorativa */
+const RamaDecorativa = ({ className = "" }) => {
+  return (
+    <svg
+      viewBox="0 0 180 260"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      className={className}
+    >
+      <path
+        d="M30 245C49 206 65 167 82 126C97 90 117 55 151 20"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+
+      <path
+        d="M48 207C28 204 16 191 12 171C33 175 47 186 48 207Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M62 174C38 166 28 150 29 128C51 136 63 151 62 174Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M78 135C56 126 48 108 52 87C72 97 82 113 78 135Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M94 101C78 84 76 65 86 46C101 62 105 80 94 101Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M51 199C69 187 87 187 104 197C86 208 68 209 51 199Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M66 164C87 153 106 156 121 169C101 178 83 176 66 164Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M83 126C103 114 123 116 139 128C120 139 101 138 83 126Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M101 91C121 79 139 81 153 93C135 103 118 103 101 91Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 
 const Itinerario2 = () => {
-  const containerFade = {
-    hidden: { opacity: 0, y: 40 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.9,
-        ease: [0.22, 1, 0.36, 1],
-      },
+  const eventos = [
+    {
+      titulo: "Ceremonia",
+      descripcion: "El inicio de nuestra historia juntos",
+      hora: "6:00 PM",
+      Icono: Church,
     },
-  };
+    {
+      titulo: "Recepción",
+      descripcion: "Bienvenida a nuestros invitados",
+      hora: "8:00 – 9:00 PM",
+      Icono: Wine,
+    },
+    {
+      titulo: "Momentos especiales",
+      descripcion: "Vals, víbora, brindis, pastel y fotos",
+      hora: "9:00 – 10:30 PM",
+      Icono: Cake,
+    },
+  ];
 
-  const cardFade = {
+  const animacionEvento = {
     hidden: {
       opacity: 0,
-      y: 35,
-      scale: 0.96,
-      filter: "blur(6px)",
+      y: 30,
     },
-    show: (index) => ({
+    visible: (index) => ({
       opacity: 1,
       y: 0,
-      scale: 1,
-      filter: "blur(0px)",
       transition: {
-        duration: 0.75,
+        duration: 0.7,
         delay: index * 0.14,
-        ease: [0.22, 1, 0.36, 1],
       },
     }),
   };
 
-  const eventosIzquierda = [
-    {
-      titulo: "Fotografías",
-      imagen: "/camara-fotografica.png",
-      hora: "4:00 pm - 4:30 pm",
-    },
-    {
-      titulo: "Comida",
-      imagen: "/cena-romantica.png",
-      hora: "5:00 pm - 6:00 pm",
-    },
-    {
-      titulo: "Baile",
-      imagen: "/bola-de-disco.png",
-      hora: "6:30 pm - 11:30 pm",
-    },
-  ];
-
-  const eventosDerecha = [
-    {
-      titulo: "Llegada de Novios",
-      imagen: "/arco-de-la-boda.png",
-      hora: "4:30 pm - 5:00 pm",
-    },
-    {
-      titulo: "Pastel",
-      imagen: "/pastel.png",
-      hora: "6:00 pm - 6:30 pm",
-    },
-  ];
-
   return (
-    <div className="w-full bg-[#F7F4ED] py-0 px-0 flex items-center justify-center overflow-hidden">
-      <motion.div
-        variants={containerFade}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
-        className="
-          max-w-6xl mx-auto
-          bg-[#F7F4ED]
-          rounded-tl-[4rem]
-          rounded-br-[4rem]
-          rounded-tr-[1rem]
-          rounded-bl-[1rem]
-          shadow-[0_15px_50px_rgba(0,0,0,0.2)]
-          p-10 sm:p-16
-        "
-      >
+    <section className="relative w-full overflow-hidden bg-[#B65F47] px-5 py-20 text-white sm:px-8 md:py-28">
+      {/* Ramas decorativas */}
+      <RamaDecorativa className="pointer-events-none absolute -left-10 -top-10 w-40 rotate-180 text-white/20 sm:w-52 md:w-60" />
+
+      <RamaDecorativa className="pointer-events-none absolute -bottom-10 -right-10 w-40 text-white/20 sm:w-52 md:w-60" />
+
+      {/* Esquinas */}
+      <div className="absolute left-5 top-5 h-16 w-16 border-l border-t border-white/30 sm:left-8 sm:top-8 sm:h-24 sm:w-24" />
+
+      <div className="absolute bottom-5 right-5 h-16 w-16 border-b border-r border-white/30 sm:bottom-8 sm:right-8 sm:h-24 sm:w-24" />
+
+      <div className="relative z-10 mx-auto w-full max-w-4xl">
+        {/* Encabezado */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.8,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-          viewport={{ once: true }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true, amount: 0.2 }}
           className="text-center"
         >
-          <p className="uppercase tracking-[0.25em] text-[#B89B5E] text-sm font-semibold">
-            Nuestro Día
+          <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-xs">
+            Nuestro día
           </p>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-playfair text-black mt-4">
+          <h2 className="mt-5 font-playfair text-5xl font-normal sm:text-6xl md:text-7xl">
             Itinerario
-          </h1>
+          </h2>
 
-          <div className="w-24 h-[2px] bg-[#B89B5E] mx-auto mt-6"></div>
+          <div className="mx-auto mt-6 flex items-center justify-center gap-3">
+            <div className="h-px w-12 bg-white/70 sm:w-20" />
+
+            <div className="h-2.5 w-2.5 rotate-45 bg-white" />
+
+            <div className="h-px w-12 bg-white/70 sm:w-20" />
+          </div>
         </motion.div>
 
-        <div className="relative mt-20">
-          <div className="hidden md:block absolute left-1/2 top-0 h-full w-[3px] bg-[#B89B5E]/40 -translate-x-1/2"></div>
+        {/* Línea del tiempo */}
+        <div className="relative mx-auto mt-16 max-w-2xl">
+          <div className="absolute bottom-10 left-8 top-10 w-px bg-white/35 sm:left-10" />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-14">
-            <div className="flex flex-col gap-14">
-              {eventosIzquierda.map((evento, index) => (
-                <motion.div
-                  key={index}
+          <div className="flex flex-col gap-10">
+            {eventos.map((evento, index) => {
+              const IconoEvento = evento.Icono;
+
+              return (
+                <motion.article
+                  key={`${evento.titulo}-${index}`}
                   custom={index}
-                  variants={cardFade}
+                  variants={animacionEvento}
                   initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.35 }}
-                  whileHover={{
-                    y: -6,
-                    scale: 1.015,
-                    transition: { duration: 0.25 },
-                  }}
-                  className="
-                    bg-white/70
-                    backdrop-blur-md
-                    rounded-3xl
-                    p-6
-                    shadow-lg
-                    border border-[#E6DDCF]
-                    text-center
-                  "
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.3 }}
+                  className="relative grid grid-cols-[64px_1fr] items-center gap-5 sm:grid-cols-[80px_1fr] sm:gap-8"
                 >
-                  <img
-                    src={evento.imagen}
-                    alt={evento.titulo}
-                    className="h-20 w-20 md:h-24 md:w-24 mx-auto"
-                  />
+                  {/* Icono */}
+                  <div className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full border border-white bg-[#B65F47] sm:h-20 sm:w-20">
+                    <IconoEvento
+                      size={30}
+                      strokeWidth={1.4}
+                      aria-hidden="true"
+                    />
+                  </div>
 
-                  <h2 className="mt-5 text-2xl font-playfair text-black">
-                    {evento.titulo}
-                  </h2>
+                  {/* Información */}
+                  <div className="border-b border-white/25 pb-9">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/75 sm:text-sm">
+                      {evento.hora}
+                    </p>
 
-                  <p className="mt-3 text-[#B89B5E] font-[DancingScript] text-xl">
-                    {evento.hora}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                    <h3 className="mt-2 font-playfair text-2xl leading-tight sm:text-3xl">
+                      {evento.titulo}
+                    </h3>
 
-            <div className="flex flex-col gap-14 md:mt-20">
-              {eventosDerecha.map((evento, index) => (
-                <motion.div
-                  key={index}
-                  custom={index + eventosIzquierda.length}
-                  variants={cardFade}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.35 }}
-                  whileHover={{
-                    y: -6,
-                    scale: 1.015,
-                    transition: { duration: 0.25 },
-                  }}
-                  className="
-                    bg-white/70
-                    backdrop-blur-md
-                    rounded-3xl
-                    p-6
-                    shadow-lg
-                    border border-[#E6DDCF]
-                    text-center
-                  "
-                >
-                  <img
-                    src={evento.imagen}
-                    alt={evento.titulo}
-                    className="h-20 w-20 md:h-24 md:w-24 mx-auto"
-                  />
-
-                  <h2 className="mt-5 text-2xl font-playfair text-black">
-                    {evento.titulo}
-                  </h2>
-
-                  <p className="mt-3 text-[#B89B5E] font-[DancingScript] text-xl">
-                    {evento.hora}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+                    <p className="mt-2 text-sm leading-relaxed text-white/75 sm:text-base">
+                      {evento.descripcion}
+                    </p>
+                  </div>
+                </motion.article>
+              );
+            })}
           </div>
         </div>
-      </motion.div>
-    </div>
+      </div>
+    </section>
   );
 };
 

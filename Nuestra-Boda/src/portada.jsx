@@ -1,47 +1,35 @@
-import React, { useRef, useState } from 'react';
-
+import React from "react";
 
 export default function Portada() {
-  const audioRef = useRef(null);
-  const [isMuted, setIsMuted] = useState(false); 
-
-  const handlePlayMusic = () => {
-    if (audioRef.current) {
-      audioRef.current.play().catch((error) => {
-        console.error("Error al intentar reproducir el audio:", error);
-      });
-    }
-  };
-
-  const toggleMute = () => {
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted; 
-      setIsMuted(!isMuted); 
-    }
-  };
-
   return (
-    <div>
-      <section className="relative w-full h-[calc(110vh-160px)] md:h-screen flex flex-col items-center justify-center text-white">
-        <img
-          src="/portada.png"
-          alt="Fondo"
-          className="absolute w-full h-full object-cover"
-        />
+    <section className="relative w-full min-h-[100svh] overflow-hidden bg-black text-white">
+      {/* Imagen principal */}
+      <img
+        src="/portada.png"
+        alt="Leonel y Lizbeth"
+        className="absolute inset-0 h-full w-full object-cover object-[70%_35%]"
+        loading="eager"
+        fetchPriority="high"
+      />
 
-        <div className="relative bg-opacity-50 rounded-lg w-full h-full justify-center items-center flex flex-col p-4 gap-4">
-          <h1 className="roboto-black p-12 text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-serif">
-            Nuestra Boda
-          </h1>
-          <p className="font-serif text-2xl sm:text-2xl md:text-3xl lg:text-4xl" >11 |
-             06 | 2026
-          </p>
-          <p className="font-serif text-lg sm:text-2xl md:text-3xl lg:text-4xl">Karla & Mark</p>
-        </div>
-      </section>
-    </div>
-    
+      {/* Degradado únicamente en la parte inferior */}
+      <div className="absolute inset-x-0 bottom-0 h-[55%] bg-gradient-to-t from-black/85 via-black/35 to-transparent" />
+
+      {/* Contenido inferior */}
+      <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center px-5 pb-12 text-center sm:pb-14 md:pb-16 lg:pb-20">
+
+        <h1 className="font-serif text-4xl font-normal leading-tight tracking-wide drop-shadow-lg sm:text-5xl md:text-6xl lg:text-7xl">
+          Leonel
+          <span className="mx-3 font-light">&</span>
+          Lizbeth
+        </h1>
+
+        <div className="my-5 h-px w-20 bg-white/80 sm:w-28" />
+
+        <p className="font-serif text-lg tracking-[0.25em] drop-shadow-md sm:text-xl md:text-2xl">
+          19 · 12 · 2026
+        </p>
+      </div>
+    </section>
   );
 }
-
-
