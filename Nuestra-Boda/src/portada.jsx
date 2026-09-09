@@ -7,7 +7,7 @@ export default function Portada() {
       <img
         src="/portada2.png"
         alt="Leonel y Lizbeth"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
         loading="eager"
         fetchPriority="high"
       />
